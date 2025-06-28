@@ -1,0 +1,11 @@
+{
+    "name": "skills/box-now-delivery",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "StYankov",
+            "email": "st.yankov00@gmail.com"
+        }
+    ],
+    "require": {}
+}
