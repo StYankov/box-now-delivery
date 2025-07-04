@@ -12,6 +12,8 @@ require_once(plugin_dir_path(__FILE__) . 'includes/box-now-delivery-cancel-order
 // Include the box-now-delivery-print-order.php file
 require_once plugin_dir_path(__FILE__) . 'includes/box-now-delivery-print-order.php';
 
+require_once plugin_dir_path(__FILE__) . 'includes/extra.php';
+
 // Check if WooCommerce is active
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
