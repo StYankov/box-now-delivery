@@ -4,7 +4,7 @@ Plugin Name: BOX NOW Доставка
 Description: Wordpress плъгин от BOX NOW за интеграция на метод на доставка до BOX NOW автомат.
 Author: boxnowbulgaria
 Text Domain: boxnowbulgaria
-Version: 2.1.3
+Version: 2.1.7
 */
 // Cancel order API call file
 require_once(plugin_dir_path(__FILE__) . 'includes/box-now-delivery-cancel-order.php');
