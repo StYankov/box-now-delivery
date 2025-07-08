@@ -313,6 +313,7 @@ function boxnow_order_completed($order_id)
     }
 
     $prep_data = boxnow_prepare_data($order);
+
     try {
       $response = boxnow_order_completed_delivery_request($prep_data, $order->get_id(), 1);
       $response_data = json_decode($response, true);
@@ -899,9 +900,3 @@ function boxnow_voucher_email_validation()
   }
 }
 add_action('admin_footer', 'boxnow_voucher_email_validation');
-
-add_action('admin_enqueue_scripts', 'boxnow_load_jquery_in_admin');
-function boxnow_load_jquery_in_admin()
-{
-  wp_enqueue_script('jquery');
-}

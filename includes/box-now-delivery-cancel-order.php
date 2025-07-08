@@ -8,7 +8,7 @@ add_filter('woocommerce_admin_order_actions', 'boxnow_add_cancel_order_button', 
 add_action('admin_head', 'boxnow_add_cancel_order_button_css');
 // Add the action for sending a cancellation request to the Box Now API
 add_action('woocommerce_order_status_changed', 'boxnow_order_canceled', 5, 4);
-add_action('transition_post_status', 'boxnow_log_order_status_transition', 10, 3);
+// add_action('transition_post_status', 'boxnow_log_order_status_transition', 10, 3);
 
 function boxnow_log_order_status_transition($new_status, $old_status, $post)
 {
