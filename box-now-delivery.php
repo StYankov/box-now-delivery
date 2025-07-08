@@ -313,8 +313,13 @@ function boxnow_order_completed($order_id)
     }
 
     $prep_data = boxnow_prepare_data($order);
-    $response = boxnow_order_completed_delivery_request($prep_data, $order->get_id(), 1);
-    $response_data = json_decode($response, true);
+    try {
+      $response = boxnow_order_completed_delivery_request($prep_data, $order->get_id(), 1);
+      $response_data = json_decode($response, true);
+    } catch (Exception $e) {
+      error_log("Грешка: " . $e->getMessage());
+      return;
+    }
 
     // Log the full order object after we call the functions
     $order = wc_get_order($order_id);
