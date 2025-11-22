@@ -19,6 +19,9 @@ function box_now_delivery_shipping_method()
          */
         class Box_Now_Delivery_Shipping_Method extends WC_Shipping_Method
         {
+            public $cost;
+            public $free_delivery_threshold;
+            public $taxable;
             /**
              * Constructor for the shipping class.
              */
