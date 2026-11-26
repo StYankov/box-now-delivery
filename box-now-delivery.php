@@ -193,44 +193,6 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
   add_action('woocommerce_process_shop_order_meta', 'bndp_box_now_delivery_save_checkout_field_admin_order_meta');
 
   /**
-   * Save extra details when processing the shop order.
-   *
-   * @param int $post_id The post ID.
-   * @param WP_Post $post The post object.
-   */
-  add_action('woocommerce_order_status_changed', 'boxnow_save_extra_details', 10, 4);
-
-  function boxnow_save_extra_details($order_id, $old_status, $new_status, $order)
-  {
-    // Log old status, new status, locker ID, and warehouse ID before status change
-    error_log('Номер на поръчката: ' . $order_id . ', Предишен статус: ' . $old_status . ', Нов Статус: ' . $new_status);
-    error_log('Преди промяна на статуса, Номер на автомат: ' . $order->get_meta('_boxnow_locker_id'));
-    error_log('Преди промяна на статуса, Номер на склад: ' . $order->get_meta('_selected_warehouse'));
-
-    // Check if locker id and Номер на склад are present in $order meta data
-    $locker_id = $order->get_meta('_boxnow_locker_id');
-    if (isset($locker_id) && $locker_id !== '') {
-      error_log("Номер на автомат: " . $locker_id);
-    } else {
-      error_log("Грешка: Поле номер на автомат е празно, при опит за .");
-    }
-
-    $warehouse_id = $order->get_meta('_selected_warehouse');
-    if (isset($warehouse_id) && $warehouse_id !== '') {
-      error_log("Номер на склад: " . $warehouse_id);
-    } else {
-      error_log("Номер на склад is empty when trying to save.");
-    }
-
-    // Refresh the order data after changes
-    $order = wc_get_order($order_id);
-
-    // Log locker ID and warehouse ID after status change
-    error_log('After status change, Номер на автомат: ' . $order->get_meta('_boxnow_locker_id'));
-    error_log('After status change, Номер на склад: ' . $order->get_meta('_selected_warehouse'));
-  }
-
-  /**
    * Update the order meta with field value.
    *
    * @param int $order_id The order ID.

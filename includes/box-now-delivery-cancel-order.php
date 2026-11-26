@@ -59,8 +59,6 @@ function boxnow_add_cancel_order_button_css()
 
 function boxnow_order_canceled($order_id, $old_status, $new_status, $order)
 {
-  error_log("Order ID: $order_id status transitioned from $old_status to $new_status");
-
   // Check if the new status is "wc-boxnow-canceled" or "boxnow-canceled"
   if ($new_status != 'wc-boxnow-canceled' && $new_status != 'boxnow-canceled') {
     return;
